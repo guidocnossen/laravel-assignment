@@ -1,0 +1,74 @@
+/*
+==========================================================================
+    Variables
+==========================================================================
+*/
+
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+$font-family: 'Arial';
+$font-family-sans-serif: sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+$font-prim: 'Arial';
+$font-sec: 'Arial', sans-serif;
+$font-tert: 'Arial'; // todo: add third font family
+$font-quat: 'Arial'; // todo: add fourth font family
+
+$col-prim: #801714; 
+$col-sec: #801714; 	// todo: change to different color
+$col-tert: #801714; // todo: change to different color
+$col-quart: #801714; // todo: change to different color 
+
+$col-text-x-dark: shade($col-prim, 50%);
+$col-text-dark: shade($col-prim, 25%);
+$col-text: $col-prim;
+$col-text-medium: #525f80;
+$col-text-light: #7e8696;
+$col-text-x-light: tint($col-text-light, 50%);
+
+$col-body-bg: #f9f9f9;
+
+$col-text: #333;
+$col-text-dark: #000;
+$col-text-light: #999;
+
+$col-grey: #eee;
+$col-grey-dark: #ddd;
+$col-grey-darker: #aaa;
+$col-grey-light: #f9f9f9;
+$col-grey-x-light: tint($col-text, 97.5%);
+$col-grey-x-dark: tint($col-text, 70%);
+
+$col-error: $col-prim;
+$col-warning: #ffb347;
+$col-succes: #77dd77;
+
+$col-twitter: #55acee;
+$col-facebook: #3b5998;
+$col-linkedin: #007bb5;
+$col-google: #dd4b39;
+$col-youtube: #bb0000;
+$col-instagram: #125688;
+$col-whatsapp: #4dc247;
+$col-pinterest: #cb2027;
+$col-dropbox: #007ee5;
+$col-paypal: #0070ba;
+
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66d9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+
+$border-rad-inner: .2em;
+$border-rad-outer: .35em;

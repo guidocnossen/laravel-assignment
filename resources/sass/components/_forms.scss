@@ -1,0 +1,939 @@
+/*
+==========================================================================
+	Forms - Base element styling
+==========================================================================
+*/
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+
+    &.input-wrapper--select {}
+
+    &.input-wrapper--checkbox,
+    &.input-wrapper--radio {
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 10px;
+            font-size: 5em;
+        }
+
+        .radio-wrapper,
+        .checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .label-text {
+            font-family: $font-sec;
+            color: $col-text;
+            font-size: .875em;
+            font-weight: bold;
+        }
+    }
+
+    &.input-wrapper--has-icon-left {
+
+        input[type="text"],
+        input[type="email"],
+        input[type="search"],
+        input[type="password"],
+        input[type="number"],
+        input[type="tel"],
+        select {
+            padding-left: 3em;
+        }
+    }
+
+    &.input-wrapper--has-icon-right {
+
+        input[type="text"],
+        input[type="email"],
+        input[type="search"],
+        input[type="password"],
+        input[type="number"],
+        input[type="tel"],
+        select {
+            padding-right: 3em;
+        }
+    }
+
+    &.input-wrapper--width-medium {
+        max-width: 400px;
+    }
+
+    &.input-has-value {
+
+        .input-clear {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &.input-wrapper--has-floating-label {
+
+        input[type="text"],
+        input[type="email"],
+        input[type="search"],
+        input[type="password"],
+        input[type="number"],
+        input[type="tel"],
+        select {
+            height: 4em;
+            padding-top: 1.5em;
+
+            &:focus ~ .input-wrapper__floating-label,
+            &[value]:not([value=""]) ~ .input-wrapper__floating-label {
+                top: .75em;
+                font-size: .75em;
+                text-transform: uppercase;
+                letter-spacing: .1em;
+            }
+        }
+    }
+
+    &.input-wrapper--has-prepend,
+    &.input-wrapper--has-append {
+        display: flex;
+    }
+
+    &.input-wrapper--has-prepend {
+
+        input {
+            border-top-left-radius: 0 !important;
+            border-bottom-left-radius: 0 !important;
+        }
+    }
+
+    &.input-wrapper--has-append {
+
+        input {
+            border-top-right-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+        }
+    }
+
+    &__prepend,
+    &__append {
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        padding: 0 1em;
+        border: 1px solid $col-grey-dark;
+        background-color: $col-grey-light;
+        color: $col-text-medium;
+        font-size: .875em;
+    }
+
+    &__prepend {
+        border-radius: .5em 0 0 .5em;
+        border-right: 0;
+    }
+
+    &__append {
+        border-radius: 0 .5em .5em 0;
+        border-left: 0;
+    }
+
+    &__floating-label {
+        position: absolute;
+        z-index: 1;
+        top: .9em;
+        left: 0;
+        padding: 0 .875rem;
+        font-family: $font-sec;
+        color: $col-text-light;
+        font-size: 1.125rem;
+        font-weight: bold;
+        text-transform: none;
+        letter-spacing: 0;
+        transition: all .15s ease-in-out, text-transform 0s;
+        pointer-events: none;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="search"],
+    input[type="password"],
+    input[type="number"],
+    input[type="tel"],
+    select,
+    textarea {
+        //@include input-style-reset;
+        height: 50px;
+        width: 100%;
+        padding: 0 .75em;
+        background-color: #fff;
+        color: $col-text;
+        transition: all .15s ease-in-out;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border: 1px solid rgba(0,0,0,0.1);
+
+
+        &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            color: $col-text-light;
+        }
+
+        &::-moz-placeholder { /* Firefox 19+ */
+            color: $col-text-light;
+        }
+
+        &:-ms-input-placeholder { /* IE 10+ */
+            color: $col-text-light;
+        }
+
+        &:-moz-placeholder { /* Firefox 18- */
+            color: $col-text-light;
+        }
+
+        &:disabled {
+            background-color: tint( $col-grey-light, 25% );
+            color: $col-text-light;
+            box-shadow: inset 0 0 0 1px $col-grey-x-dark !important;
+            cursor: not-allowed;
+
+            & ~ .input-wrapper__floating-label {
+                opacity: .5;
+            }
+        }
+
+        &.input-has-suggestions:focus ~ .input-suggestions {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    textarea[rows] {
+        height: auto;
+        resize: both;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="search"],
+    input[type="password"],
+    input[type="number"],
+    input[type="tel"],
+    textarea {
+        box-shadow: inset 0 0 0 1px $col-grey-x-dark, inset 0 .125em .25em $col-grey;
+
+        &:hover,
+        &:focus {
+            box-shadow: inset 0 0 0 2px $col-text-light, inset 0 .125em .25em $col-grey;
+        }
+    }
+
+    select {
+        cursor: pointer;
+        box-shadow: inset 0 0 0 1px $col-grey-x-dark, inset 0 -.5em 2em $col-grey-light;
+
+        &:hover,
+        &:focus {
+            box-shadow: inset 0 0 0 2px $col-text-light, inset 0 -.5em 2em $col-grey-light;
+        }
+    }
+
+    textarea {
+        height: 14em;
+        padding: 1em;
+        resize: none;
+    }
+
+    .icon {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        padding: 0 1em;
+        color: $col-text-x-light;
+        font-size: .875rem;
+        line-height: 1em;
+        pointer-events: none;
+
+        &.icon--left {
+            left: 0;
+        }
+
+        &.icon--right {
+            right: 0;
+        }
+    }
+
+    .input-clear {
+        position: absolute;
+        z-index: 5;
+        top: 2px;
+        right: 2px;
+        bottom: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 calc( 1em - 2px ) 0 1em;
+        border-radius: .5em;
+        background-color: #fff;
+        color: $col-text-light;
+        font-size: 1rem;
+        line-height: 1em;
+        transition: all .15s ease-in-out;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+
+        &:hover,
+        &:focus {
+            color: $col-text;
+        }
+    }
+}
+
+.input-has-suggestions:focus {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+
+    & + .input-suggestions {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.fields-wrapper {
+    margin: 1.5em 0;
+    //@include flexmargin;
+
+    &.fields-wrapper--align-labels-left {
+        // moved to mediaqueries/580.scss
+    }
+
+    &.fields-wrapper--columns {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin-left: -1em;
+        margin-right: -1em;
+
+        & > .field {
+            flex: 1 1 250px;
+            min-width: 0;
+            margin: .75em 1em !important;
+        }
+    }
+
+    & + .fields-wrapper.cloned {
+        padding-top: 1.5em;
+        border-top: 2px solid $col-grey;
+    }
+
+    .flex-wrapper {
+        margin: -10px;
+
+        .flex-item {
+            flex: 0 0 25%;
+            padding: 10px;
+
+            &.flex-item--full {
+                flex: 0 0 100%;
+            }
+        }
+    }
+
+    .fields-label {
+        display: block;
+        margin: 0 0 .75em;
+        font-family: $font-sec;
+        color: $col-text;
+        font-size: .875em;
+        font-weight: bold;
+
+        .light {
+            color: $col-text-light;
+        }
+
+        .required {
+            position: relative;
+            top: -.1em;
+            color: $col-prim;
+            font-size: .75em;
+        }
+    }
+
+    .fields {
+        display: flex;
+        width: 100%;
+
+        &.fields--align-end {
+            align-items: flex-end;
+        }
+
+        &.fields--narrow {
+            max-width: 850px;
+        }
+
+        &.fields--border-bottom:not(:last-child) {
+            padding-bottom: 1.5em;
+            border-bottom: 1px solid $col-grey;
+        }
+
+        &.fields--gap {
+            margin-left: -.5em;
+            margin-right: -.5em;
+
+            .field {
+                margin: 0 .5em !important;
+            }
+        }
+
+        &:not(:first-child) {
+            margin: 1.5em 0 0;
+        }
+
+        &:not(.fields--gap) .field {
+
+            &:first-child .input-wrapper input {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            &:last-child .input-wrapper input {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+
+            &:not(:first-child):not(:last-child) input {
+                border-radius: 0;
+            }
+        }
+
+        .field {
+            flex: 1 1 auto;
+            margin: 0 !important;
+
+            &.field--dont-grow {
+                flex-grow: 0;
+            }
+        }
+
+        .btn {
+            height: 40px;
+            padding: 0 1em;
+            box-shadow: none;
+            border-radius: 0 .5em .5em 0;
+            white-space: nowrap;
+        }
+    }
+
+    .field {
+
+        &.field--hidden {
+            display: none;
+        }
+
+        &.field--align-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        &.field--error {
+
+            input[type="text"],
+            input[type="email"],
+            input[type="search"],
+            input[type="password"],
+            input[type="number"],
+            input[type="tel"],
+            textarea {
+                box-shadow: inset 0 0 0 1px $col-error, inset 0 .125em .25em $col-grey;
+
+                &:hover,
+                &:focus {
+                    box-shadow: inset 0 0 0 2px $col-text-light, inset 0 .125em .25em $col-grey;
+                }
+            }
+
+            select {
+                box-shadow: inset 0 0 0 1px $col-error, inset 0 -.5em 2em $col-grey-light;
+
+                &:hover,
+                &:focus {
+                    box-shadow: inset 0 0 0 2px $col-text-light, inset 0 -.5em 2em tint( $col-grey-light, 50% );
+                }
+            }
+        }
+
+        &.field--links {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            font-size: .75rem;
+            text-align: left;
+
+            a {
+                line-height: 1.5em;
+            }
+        }
+
+        &.field--larger-margin:not(:first-child) {
+            margin: 2.5em 0 0;
+        }
+
+        &:not(:first-child) {
+            margin: 1.5em 0 0;
+        }
+
+        &__label {
+            display: block;
+            margin: 0 0 .5em;
+            font-family: $font-sec;
+            color: $col-text;
+            font-size: 1em;
+            font-weight: 700;
+
+            &.field__label--larger-margin {
+                margin: .5em 0 1.5em;
+            }
+
+            .light {
+                color: $col-text-light;
+            }
+
+            .required {
+                position: relative;
+                top: -.1em;
+                color: $col-prim;
+                font-size: .75em;
+            }
+        }
+
+        &__input {}
+
+        &__description {
+            margin: 1em 0 0;
+            color: $col-text-medium;
+            font-size: .75em;
+
+            &.field__description--error {
+                color: $col-error;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .field-separator {}
+}
+
+.custom-file {
+    display: flex;
+    align-items: center;
+
+    button {
+        position: relative;
+        //@include input-style-reset;
+        flex-shrink: 0;
+        height: 40px;
+        padding: 0 1em;
+        margin-left: .75em;
+        border-radius: .5em;
+        background-color: $col-grey-light;
+        color: desaturate( $col-sec, 25% );
+        font-size: .875em;
+        transition: all .15s ease-in-out, top 0s;
+        cursor: pointer;
+
+        &:hover,
+        &:focus {
+            background-color: tint( $col-grey-light, 25% );
+        }
+
+        &:active {
+            top: 1px;
+            background-color: shade( $col-grey-light, 5% );
+        }
+    }
+
+    input[type="file"] {
+        position: absolute;
+        left: -9999px;
+    }
+}
+
+.custom-checkbox,
+.custom-radio {
+    display: flex;
+    align-content: center;
+    margin: 1em 0;
+    //@include flexmargin;
+    cursor: pointer;
+
+    &__input {
+        position: absolute;
+        left: -9999px;
+        opacity: 0;
+    }
+
+    &__fancy-input {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.5em;
+        height: 1.5em;
+        margin-right: .75em;
+        background-color: #fff;
+        color: #fff;
+        font-size: 1em;
+        line-height: 1em;
+        box-shadow: inset 0 0 0 1px $col-grey-x-dark, inset 0 .125em .25em $col-grey;
+        transition: all .15s ease-in-out;
+    }
+
+    &__label {
+        //@include text-nowrap;
+        color: $col-text-medium;
+        font-size: .875em;
+        line-height: 1.618em;
+        transition: color .15s ease-in-out;
+    }
+}
+
+.custom-checkbox {
+
+    &:hover,
+    &:focus-within {
+
+        .custom-checkbox__fancy-input {
+            box-shadow: inset 0 0 0 2px $col-text-light, inset 0 .125em .25em $col-grey;
+        }
+    }
+
+    &__input:checked {
+
+        & + .custom-checkbox__fancy-input {
+            box-shadow: inset 0 0 0 0 $col-grey-x-dark, inset 0 0 0 1em $col-tert;
+            color: $col-prim;
+        }
+
+        & ~ .custom-checkbox__label {
+            color: $col-text;
+        }
+    }
+
+    &__fancy-input {
+        border-radius: .25em;
+    }
+}
+
+.custom-radio {
+
+    &:hover,
+    &:focus-within {
+
+        .custom-radio__fancy-input {
+            box-shadow: inset 0 0 0 2px $col-text-light, inset 0 .125em .25em $col-grey;
+        }
+    }
+
+    &__input:checked {
+
+        & + .custom-radio__fancy-input {
+            box-shadow: inset 0 0 0 0 $col-grey-x-dark, inset 0 0 0 1em $col-tert;
+            color: $col-prim;
+        }
+
+        & ~ .custom-radio__label {
+            color: $col-text;
+        }
+    }
+
+    &__fancy-input {
+        border-radius: 50%;
+    }
+}
+
+.custom-select {
+    position: relative;
+
+    &.custom-select--empty .custom-select__label {
+        color: $col-text-light;
+    }
+
+    &.custom-select--open {
+
+        .custom-select__fancy-input {
+            border-radius: .5em .5em 0 0;
+            box-shadow: inset 0 0 0 2px $col-text-light, inset 0 -.5em 2em tint( $col-grey-light, 50% );
+        }
+
+        .custom-select__dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &.custom-select--disabled {
+        cursor: not-allowed;
+
+        .custom-select__fancy-input {
+            pointer-events: none;
+            background-color: $col-grey-light;
+            box-shadow: inset 0 0 0 1px $col-grey-x-dark;
+        }
+
+        .custom-select__label {}
+
+        .custom-select__dropdown {
+            display: none;
+        }
+    }
+
+    &__fancy-input {
+        display: flex;
+        align-items: center;
+        height: 40px;
+        width: 100%;
+        padding: 0 1em;
+        padding-right: 3em;
+        border-radius: .5em;
+        background-color: #fff;
+        color: $col-text;
+        font-size: .875em;
+        transition: all .15s ease-in-out;
+        cursor: pointer;
+        box-shadow: inset 0 0 0 1px $col-grey-x-dark, inset 0 -.5em 2em $col-grey-light;
+
+        &:hover,
+        &:focus {
+            box-shadow: inset 0 0 0 2px $col-text-light, inset 0 -.5em 2em tint( $col-grey-light, 50% );
+        }
+    }
+
+    &__label {
+        //@include text-nowrap;
+    }
+
+    &__icon {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        padding: 0 1em;
+        color: $col-text-x-light;
+        font-size: .875rem;
+        line-height: 1em;
+        pointer-events: none;
+    }
+
+    &__dropdown {
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        top: calc(100% - 1px);
+        width: 100%;
+        padding: 15px;
+        max-height: 350px;
+        overflow: auto;
+        border-radius: 0 0 .5em .5em;
+        border: 2px solid $col-text-light;
+        border-top: 0;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(#000, .1);
+        opacity: 0;
+        visibility: hidden;
+        transition: all .15s ease-in-out;
+        will-change: opacity, visibility;
+    }
+}
+
+.custom-toggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+
+    &__input {
+        position: absolute;
+        left: -9999px;
+        opacity: 0;
+
+        &:checked ~ .custom-toggle__fancy-input {
+            background-color: $col-succes;
+
+            .custom-toggle__fancy-input-knob {
+                left: 1.25em;
+            }
+        }
+    }
+
+    &__label {
+        margin-left: 1em;
+        font-family: $font-sec;
+        color: $col-text;
+        font-size: .875em;
+        font-weight: bold;
+    }
+
+    &__fancy-input {
+        position: relative;
+        flex-shrink: 0;
+        width: 2.5em;
+        height: 1.5em;
+        background-color: $col-grey;
+        border-radius: 5em;
+        overflow: hidden;
+        transition: background-color .15s ease-in-out;
+        will-change: background-color;
+
+        &-knob {
+            position: absolute;
+            top: .25em;
+            left: .25em;
+            width: 1em;
+            height: 1em;
+            border-radius: inherit;
+            background-color: #fff;
+            box-shadow: 0 0 .75em rgba(#000, .1);
+            transition: left .15s ease-in-out;
+            will-change: left;
+        }
+    }
+}
+
+.file-upload {
+  margin: 20px 0;
+  @extend .flexmargin;
+
+  .uploaded-files {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    @extend .flexmargin;
+    font-size: 0;
+
+    .file {
+      position: relative;
+      margin: 10px 15px 0 0;
+      font-size: 1rem;
+
+      &.empty {
+        width: 100px;
+        height: 100px;
+        border-radius: .25em;
+        background-color: $col-grey-light;
+      }
+
+      &:hover {
+
+        .delete-file {
+          opacity: 1;
+        }
+      }
+
+      img {
+        width: 100px;
+        height: auto;
+        border-radius: .25em;
+      }
+
+      .no-img {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+        border-radius: .25em;
+        background-color: $col-quart;
+        color: $col-tert;
+        font-size: .875em;
+        line-height: 1.5em;
+        text-align: center;
+
+        .file-name {
+          font-weight: 600;
+          word-break: break-all;
+        }
+
+        .file-size {
+          color: $col-sec;
+        }
+      }
+
+      .delete-file {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        margin: -10px -10px 0 0;
+        border-radius: 50%;
+        background-color: $col-tert;
+        color: #fff;
+        font-size: 1.5em;
+        line-height: 1em;
+        font-weight: 500;
+        text-decoration: none;
+        opacity: 0;
+
+        &:hover,
+        &:focus {
+          opacity: 1;
+          background-color: $col-sec;
+        }
+
+        span {
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+
+  .input-wrapper {
+
+    label.input-file {
+
+      input.input-elem {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+
+        & + span {
+          background-color: $col-tert;
+          color: #fff;
+        }
+      }
+
+      input.input-elem:focus + span,
+      input.input-elem + span:hover {
+        background-color: $col-sec;
+      }
+    }
+  }
+}
+
+.field-description {
+    margin: .5em 0;
+    @extend .flexmargin;
+    color: $col-text-light;
+    font-weight: 400;
+    font-style: italic;
+}

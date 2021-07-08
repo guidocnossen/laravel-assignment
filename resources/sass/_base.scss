@@ -745,6 +745,10 @@ h6 {
     td {
         padding: .75em 1.5em;
 
+        img {
+            height: 7.5em;
+        }
+
         &:not(.text-right) {
             text-align: left;
         }

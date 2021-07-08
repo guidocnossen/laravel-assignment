@@ -11629,6 +11629,11 @@ h6 {
   padding: 0.75em 1.5em;
 }
 
+.data-table th img,
+.data-table td img {
+  height: 7.5em;
+}
+
 .data-table th:not(.text-right),
 .data-table td:not(.text-right) {
   text-align: left;

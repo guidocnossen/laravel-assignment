@@ -104,7 +104,7 @@
                                title="Remove Image"
                                rel="nofollow"><span>+</span></a>
                             <img src="/storage/houses/{{ $house->id . '/' . $image->location }}"
-                                 alt="House image">
+                                 alt="Afbeelding">
                         </li>
                     @endforeach
                     @for($counter=($house->images->count() + 1);$counter<=3;$counter++)

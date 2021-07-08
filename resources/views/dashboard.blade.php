@@ -24,7 +24,7 @@
                                 <tr>
                                     <td>
                                         @if (!empty($house->images()->get()->all()))
-                                            <img src="/storage/houses/{{ $house->id . '/' . $house->images()->first()->location }}" alt="House image">
+                                            <img src="/storage/houses/{{ $house->id . '/' . $house->images()->first()->location }}" alt="Afbeelding">
                                         @else 
                                             X
                                         @endif

@@ -18071,10 +18071,7 @@ module.exports = g;
 window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"); //include bootstrap
 
 __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js"); //include local plugin packages
-//own plugins
 
-
-__webpack_require__(/*! ./plugins/dbk-subselect */ "./resources/js/plugins/dbk-subselect.js");
 
 $(document).ready(function () {
   // load in modules
@@ -18126,73 +18123,6 @@ $('.file-upload .input-elem').each(function () {
       $input.blur();
     }
   });
-});
-
-/***/ }),
-
-/***/ "./resources/js/plugins/dbk-subselect.js":
-/*!***********************************************!*\
-  !*** ./resources/js/plugins/dbk-subselect.js ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (factory) {
-  if (true) {
-    // AMD. Register as an anonymous module depending on jQuery.
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  } else {}
-})(function ($) {
-  var defaults = {};
-
-  var subSelectBox = function subSelectBox($element, options) {
-    var _this2 = this;
-
-    this.settings = $.extend({}, defaults, options);
-    this.$element = $element;
-    this.settings.resetOnChange = this.$element.data('subselect-reset');
-    this.$subselectboxes = $(this.$element.data('subselect-target'));
-
-    this.init = function () {
-      var _this = this;
-
-      this.$element.on('change', function (e) {
-        $(_this.settings.resetOnChange).hide();
-        $(_this.settings.resetOnChange).find('select').prop('disabled', true);
-
-        _this.showSelectbox(_this.$element.val());
-      });
-    };
-
-    this.showSelectbox = function (select_id) {
-      _this2.$subselectboxes.each(function (i, e) {
-        var $this = $(e);
-        var $select = $this.find('select');
-
-        if ($this.data('subselect-id') == select_id) {
-          $this.show();
-          $select.prop('disabled', false);
-        } else {
-          $this.hide();
-          $select.prop('selectedIndex', null);
-          $select.prop('disabled', true);
-        }
-      });
-    };
-
-    this.init();
-  };
-
-  $.fn.subSelectBox = function (options) {
-    return this.each(function () {
-      if (!$.data(this, 'subSelectBox')) {
-        $.data(this, 'subSelectBox', new subSelectBox($(this), options));
-      }
-    });
-  };
 });
 
 /***/ }),

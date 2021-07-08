@@ -21,11 +21,11 @@ class HomeController extends Controller
         if ($user) {
             if ($user->isAdmin()){
                 return redirect('/admin/dashboard'); 
-            } else {
-                $houses = House::all();
-
-                return view('dashboard')->with('houses', $houses); 
             } 
-        }
+        } else {
+            $houses = House::all();
+
+            return view('dashboard')->with('houses', $houses); 
+        } 
     }
 }

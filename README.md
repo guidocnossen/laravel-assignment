@@ -25,6 +25,3 @@ admin-account om in te loggen en huizen aan te maken in het CMS:
 	**- pass: test123**
 <br/>
 <br/>
-
-registreer vervolgens via het inlogscherm om een gebruiker te maken
-voor het platform en alle huizen aan de voorkant te kunnen zien

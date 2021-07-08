@@ -14,10 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
-Route::group(['middleware' => ['auth']], function () {
-    Route::get('/', 'HomeController@index');
-    Route::get('/home', 'HomeController@index'); 
-});
+Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index'); 
 
 // logout by get
 Route::get('logout', 'Auth\LoginController@logout');

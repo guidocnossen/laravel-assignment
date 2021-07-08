@@ -5,10 +5,6 @@ require('bootstrap');
 
 //include local plugin packages
 
-//own plugins
-
-require('./plugins/dbk-subselect'); 
-
 $(document).ready(function () {
 
 	// load in modules

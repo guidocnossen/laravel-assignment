@@ -1,5 +1,7 @@
 # laravel-assignment
 
+maak een .env bestand aan
+
 <br/>
 run de volgende commando's:
 <br/>
